@@ -1,14 +1,30 @@
 const express = require('express');
 const app = express();
-const port = 1000;
+require('dotenv').config();
+const mongoose = require('mongoose');
+const infoRoute = require('./routes/InfoRoute');
 
+app.use(express.json());
 
 app.get('/',function(req,res){
-    res.send('Ashokan is on 🔥')
+    res.send('Ashokan is on 🔥❤️‍🔥')
 })
 
-app.listen(port,() => {
-   console.log (`listening to port ${port}`);
-});
+//middleware
+app.use((req,res,next) => {
+    console.log(req.path, req.method);
+    next();
+})
+
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    app.listen(process.env.PORT ,() => {
+        console.log ("Connected to MongoDB : " + process.env.PORT );
+    });
+})
+.catch((error) => console.log(error));
+
+app.use('/api/info',infoRoute);
+
 
 
