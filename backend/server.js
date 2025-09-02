@@ -11,10 +11,10 @@ app.get('/',function(req,res){
 })
 
 //middleware
-app.use((req,res,next) => {
-    console.log(req.path, req.method);
-    next();
-})
+// app.use((req,res,next) => {
+//     console.log(req.path, req.method);
+//     next();
+// })
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
