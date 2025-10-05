@@ -1,5 +1,5 @@
 const express =require('express');
-const router = express.Router();
+const router = express.Router(); // express router for routing
 
 const {createInfo , getAllInfo, getSingleInfo, updateInfo, deleteInfo} = require('../controller/InfoController');
 
