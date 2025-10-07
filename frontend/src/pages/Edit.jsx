@@ -157,7 +157,7 @@ function Create() {
             <p>Age: {item.age}</p>
             <p>Email: {item.email}</p>
             <p>Salary: {item.Salary}</p>
-            <button onClick={() => startEdit(item)}>Edit</button>
+            <button onClick={() => startEdit(item)}>Modify</button>
             <button onClick={() => handleDelete(item.id)}>Delete</button>
           </div>
         ))}
